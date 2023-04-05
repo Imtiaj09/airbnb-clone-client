@@ -23,8 +23,8 @@ const Modal: React.FC<ModalProps>  = ({
     onSubmit,
     title,
     body,
-    footer,
     actionLabel,
+    footer,
     disabled,
     secondaryAction,
     secondaryActionLabel
@@ -45,7 +45,7 @@ const Modal: React.FC<ModalProps>  = ({
         setTimeout(() => {
             onClose();
         }, 300)
-    }, [disabled, onClose]);
+    }, [onClose, disabled]);
 
     const handleSubmit = useCallback(() => {
         if(disabled){
@@ -53,7 +53,7 @@ const Modal: React.FC<ModalProps>  = ({
         }
 
         onSubmit();
-    }, [disabled, onSubmit]);
+    }, [onSubmit, disabled]);
 
     const handleSecondaryAction = useCallback(() => {
         if(disabled || !secondaryAction) {
@@ -61,7 +61,7 @@ const Modal: React.FC<ModalProps>  = ({
         }
 
         secondaryAction();
-    }, [disabled, secondaryAction]);
+    }, [secondaryAction, disabled]);
 
     if(!isOpen){
         return null;
@@ -159,7 +159,7 @@ const Modal: React.FC<ModalProps>  = ({
                       </div>
                       {/* BODY */}
                       <div className="relative p-6 flex-auto">
-                        {footer}
+                        {body}
                       </div>
                       {/* FOOTER */}
                       <div className="flex flex-col gap-2 p-6">
@@ -185,6 +185,9 @@ const Modal: React.FC<ModalProps>  = ({
                             label={actionLabel}
                             onClick={handleSubmit}
                             />
+                            <div>
+                                {footer}
+                            </div>
                         </div>
                       </div>
                     </div> 
