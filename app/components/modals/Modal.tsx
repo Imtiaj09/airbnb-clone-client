@@ -126,6 +126,7 @@ const Modal: React.FC<ModalProps>  = ({
                    focus:outline-none
                    "
                    >
+                    
                       {/* HEADER */}
                       <div
                       className="
@@ -139,15 +140,15 @@ const Modal: React.FC<ModalProps>  = ({
                       "
                       >
                         <button
-                        onClick={handleClose}
                         className="
                         p-1
                         border-0
-                        hover:opacity-0
+                        hover:opacity-70
                         transition
                         absolute
                         left-9
                         "
+                        onClick={handleClose}
                         >
                             <IoMdClose size={18}/>
                         </button>
@@ -157,10 +158,12 @@ const Modal: React.FC<ModalProps>  = ({
                             {title}
                         </div>
                       </div>
+
                       {/* BODY */}
                       <div className="relative p-6 flex-auto">
                         {body}
                       </div>
+
                       {/* FOOTER */}
                       <div className="flex flex-col gap-2 p-6">
                         <div 
@@ -185,10 +188,10 @@ const Modal: React.FC<ModalProps>  = ({
                             label={actionLabel}
                             onClick={handleSubmit}
                             />
+                        </div>
                             <div>
                                 {footer}
                             </div>
-                        </div>
                       </div>
                     </div> 
                 </div>
